@@ -37,6 +37,17 @@ def home():
     conn.close()
     return render_template('index.html', expenses=all_expenses, total=total)
 
+@app.route('/')
+def index():
+    # Fetch all expenses
+    expenses = Expense.query.all()
+    
+    # Calculate the total (This is the "Polish" part!)
+    total_amount = sum(expense.amount for expense in expenses)
+    
+    # Send both the list and the total to your HTML
+    return render_template('index.html', expenses=expenses, total=total_amount)
+
 @app.route('/add', methods=['POST'])
 def add_expense():
     item = request.form.get('item')

@@ -51,11 +51,16 @@
                         </td>
                     </tr>
                     {% endfor %}
-                    <tr class="table-info">
-                        <td><strong>Total Spending</strong></td>
-                        <td><strong>₹ {{ total }}</strong></td>
-                        <td></td>
-                    </tr>
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <div class="card border-primary shadow-sm">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-muted">Total Expenses</h5>
+                                    <h2 class="display-6 text-primary">₹ {{ total }}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </tbody>
             </table>
         </div>
